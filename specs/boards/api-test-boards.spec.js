@@ -15,6 +15,7 @@ describe('API boards', () => {
         const res = await trelloController.getBoards(config.creds)
 
         expect(res.statusCode).not.toEqual(404);
+        expect(res.statusCode).not.toEqual(200);
     }),
 
     test('Cтатус с кодом ошибки если токен неверный', async () => {
