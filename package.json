@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest"
+    "start": "node ./src/run.js",
+    "test": "jest",
+    "test:coverage": "jest - -coverage - - collectCoverageFrom='./src/* *'"
   },
   "repository": {
     "type": "git",
