@@ -36,8 +36,8 @@ jobs:
       
 
     - name: Upload report
-    uses: actions/checkout@v3
-    with:
-        name: report
-        if-no-files-found: error
-        path: ./jest-html-report
+      uses: actions/checkout@v3
+      with:
+          name: report
+          if-no-files-found: error
+          path: ./jest-html-report
