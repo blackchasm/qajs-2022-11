@@ -12,7 +12,6 @@ on:
 
 jobs:
   build:
-  deploy-presentation:
 
     runs-on: ubuntu-latest
 
@@ -67,7 +66,17 @@ jobs:
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
-   - name: Generate a Remark Presentation
-      steps:
-   - id: generate-presentation
+on:
+
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy_presentation:
+    runs-on: ubuntu-latest
+    name: Generate a Remark Presentation
+    steps:
+    - id: generate-presentation
       uses: rreichel3/remarkable-action
