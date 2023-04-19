@@ -12,6 +12,7 @@ on:
 
 jobs:
   build:
+  deploy-presentation:
 
     runs-on: ubuntu-latest
 
@@ -65,3 +66,8 @@ jobs:
             Repository: ${{ github.repository }}
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+
+   - name: Generate a Remark Presentation
+      steps:
+   - id: generate-presentation
+      uses: rreichel3/remarkable-action
