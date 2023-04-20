@@ -53,6 +53,13 @@ jobs:
           if-no-files-found: error
           path: ./coverage
 
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: html-report
+        clean: true
+        token: ${{ secrets.TOKEN }}
+
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
       with:
@@ -66,17 +73,3 @@ jobs:
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
-on:
-
-  push:
-    branches:
-      - main
-      - master
-
-jobs:
-  deploy_presentation:
-    runs-on: ubuntu-latest
-    name: Generate a Remark Presentation
-    steps:
-    - id: generate-presentation
-      uses: rreichel3/remarkable-action
